@@ -20,7 +20,10 @@ vivado_hls ./script.tcl
 
 ### Architecture
 
-todo
+![architecture.png](https://bitbucket.org/repo/7kRXr5/images/1203981648-architecture.png)
+
+The program uses line buffer to receive streaming image pixel and sliding window buffer to multiply with the kernel.  In order to make sure window buffer is filled properly at the beginning, the loop starts with `i = 0, j = 0` and `output_image[i-1][j-1]`, so the invalid computing result will be discarded and there is no if/else inside the loop to slow the program down. 
+
 
 
 ### Result Comparision
