@@ -13,7 +13,9 @@ TODO
 ### How to run the Project
 
 ```shell
-todo
+## in the vivada_hls shell
+git clone https://bitbucket.org/xyz0/cse_291_fpga_cv_hw2/ hw2  && cd hw2/sobel
+vivado_hls ./script.tcl
 ```
 
 ### Architecture
@@ -24,6 +26,18 @@ todo
 
 ### Test Bench
 
+I compare every pixel value between the original sobel implementation and this optimized one to determine its correctness and accuracy.
 
-todo
-
+```c++
+//stuff
+sobel(input_image, output_image);
+sobel_truth(input_image, output_image_gold);
+bool success = true;
+for (i=1; i<359; i++)
+   for (j=1; j<639; j++)
+       if(!output_image[i][j] == output_image_gold[i][j]){
+	    printf("Test failed at (%d,%d), truth = %d, yours = %d\n",i,j
+			,output_image_gold[i][j],output_image[i][j]);
+	    success = false;
+	}
+```
