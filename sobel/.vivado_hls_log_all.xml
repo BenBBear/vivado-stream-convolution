@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="@W [RTGEN-101] Setting dangling out port 'sobel/ap_return' to 0." projectName="sobel" solutionName="solution1" date="2016-04-18T02:16:05.859-0700" type="Warning"/>
+        <logs message="@W [RTGEN-101] Global array 'window_buffer' will not be exposed as RTL port." projectName="sobel" solutionName="solution1" date="2016-04-18T02:16:05.844-0700" type="Warning"/>
+        <logs message="@W [RTGEN-101] Global scalar 'Gy' will not be exposed as RTL port." projectName="sobel" solutionName="solution1" date="2016-04-18T02:16:05.844-0700" type="Warning"/>
+        <logs message="@W [RTGEN-101] Global scalar 'Gx' will not be exposed as RTL port." projectName="sobel" solutionName="solution1" date="2016-04-18T02:16:05.844-0700" type="Warning"/>
+        <logs message="@W [RTGEN-101] Global array 'line_buffer' will not be exposed as RTL port." projectName="sobel" solutionName="solution1" date="2016-04-18T02:16:05.828-0700" type="Warning"/>
+        <logs message="@W [SCHED-69] Unable to schedule 'load' operation ('window_buffer_load_4', sobel.cpp:48) on array 'window_buffer' due to limited memory ports." projectName="sobel" solutionName="solution1" date="2016-04-18T02:16:05.727-0700" type="Warning"/>
+        <logs message="@W [SCHED-68] Unable to enforce a carried dependency constraint (II = 1, distance = 1)&#xD;&#xA;   between 'store' operation (sobel.cpp:49) of variable 'window_buffer_load_1', sobel.cpp:49 on array 'window_buffer' and 'load' operation ('window_buffer_load', sobel.cpp:48) on array 'window_buffer'." projectName="sobel" solutionName="solution1" date="2016-04-18T02:16:05.706-0700" type="Warning"/>
+        <logs message="@W [ANALYSIS-52] Setting false inter dependency for variable 'line_buffer'." projectName="sobel" solutionName="solution1" date="2016-04-18T02:16:05.628-0700" type="Warning"/>
+        <logs message="@W [XFORM-542] Cannot flatten a loop nest 'IMG_H' (sobel.cpp:42:3) in function 'sobel' : &#xD;&#xA;               the outer loop is not a perfect loop." projectName="sobel" solutionName="solution1" date="2016-04-18T02:16:05.560-0700" type="Warning"/>
+        <logs message="@W [SYNCHK-78] Function 'sobel' (sobel.cpp:36) has undefined return value (possible cause(s): an uninitialized variable is used in the computation of return result)." projectName="sobel" solutionName="solution1" date="2016-04-18T02:16:05.359-0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

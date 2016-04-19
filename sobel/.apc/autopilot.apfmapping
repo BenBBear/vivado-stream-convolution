@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="sobel.cpp" path="C:\Users\xiz36\Desktop\hw2_sobel\hw2_sobel\sobel.cpp"/>
+    <originFiles name="sobel.h" path="C:\Users\xiz36\Desktop\hw2_sobel\hw2_sobel\sobel.h"/>
+  </source>
+  <testbench>
+    <originFiles name="sobel_test.cpp" path="C:\Users\xiz36\Desktop\hw2_sobel\hw2_sobel\sobel_test.cpp"/>
+    <originFiles name="Input" path="C:\Users\xiz36\Desktop\hw2_sobel\hw2_sobel\Input"/>
+    <originFiles name="Output" path="C:\Users\xiz36\Desktop\hw2_sobel\hw2_sobel\Output"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

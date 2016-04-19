@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="sobel" xd:componentRef="sobel" xd:initiationInterval="2459042" xd:clockPeriod="10.000000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:returnValue xd:interfaceRef="ap_return" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:controlReg xd:name="control" xd:interfaceRef="ap_ctrl" xd:busTypeRef="acc_handshake" xd:type="acc_handshake"/>
+  <xd:arg xd:name="input_image[][]" xd:originalName="input_image" xd:direction="in" xd:interfaceRef="input_image" xd:busTypeRef="acc_fifo" xd:arraySize="307200" xd:dataWidth="8"/>
+  <xd:arg xd:name="output_image[][]" xd:originalName="output_image" xd:direction="out" xd:interfaceRef="output_image" xd:busTypeRef="acc_fifo" xd:arraySize="307200" xd:dataWidth="8"/>
+  <xd:latencyEstimates xd:best-case="2459041" xd:worst-case="2459041" xd:average-case="2459041"/>
+  <xd:resourceEstimates xd:LUT="248" xd:FF="164" xd:BRAM="2" xd:DSP="0"/>
+</xd:acceleratorMap>

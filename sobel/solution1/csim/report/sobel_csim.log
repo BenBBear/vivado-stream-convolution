@@ -1,0 +1,8 @@
+   Compiling ../../../../sobel_test.cpp in debug mode
+   Compiling ../../../../sobel.cpp in debug mode
+   Generating csim.exe
+Image file read success!
+<Optimized Function> runs for 0.003000 seconds.
+<Unoptimized Function> runs for 0.000000 seconds.
+SUCCESS
+@I [SIM-1] CSim done with 0 errors.

@@ -1,0 +1,478 @@
+
+
+================================================================
+== Vivado HLS Report for 'sobel'
+================================================================
+* Date:           Mon Apr 18 02:16:05 2016
+
+* Version:        2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)
+* Project:        sobel
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      7.94|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +---------+---------+---------+---------+---------+
+    |      Latency      |      Interval     | Pipeline|
+    |   min   |   max   |   min   |   max   |   Type  |
+    +---------+---------+---------+---------+---------+
+    |  2459041|  2459041|  2459042|  2459042|   none  |
+    +---------+---------+---------+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |      Latency      | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- IMG_H   |  2459040|  2459040|      5123|          -|          -|   480|    no    |
+        | + IMG_W  |     5120|     5120|         8|          8|          1|   640|    yes   |
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 8, depth = 8
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 11
+* Pipeline: 1
+  Pipeline-0: II = 8, D = 8, States = { 3 4 5 6 7 8 9 10 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond2)
+3 --> 
+	11  / (exitcond1)
+	4  / (!exitcond1)
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	3  / true
+11 --> 
+	2  / true
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: empty [1/1] 0.00ns
+:0  %empty = call i32 (...)* @_ssdm_op_SpecInterface(i8* %output_image, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str7, [1 x i8]* @p_str8, [1 x i8]* @p_str9) nounwind
+
+ST_1: empty_3 [1/1] 0.00ns
+:1  %empty_3 = call i32 (...)* @_ssdm_op_SpecInterface(i8* %input_image, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str10, [1 x i8]* @p_str11, [1 x i8]* @p_str12, [1 x i8]* @p_str13) nounwind
+
+ST_1: stg_14 [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i8* %input_image) nounwind, !map !33
+
+ST_1: stg_15 [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i8* %output_image) nounwind, !map !39
+
+ST_1: stg_16 [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecBitsMap(i32 0) nounwind, !map !43
+
+ST_1: stg_17 [1/1] 0.00ns
+:5  call void (...)* @_ssdm_op_SpecTopModule([6 x i8]* @sobel_str) nounwind
+
+ST_1: stg_18 [1/1] 1.57ns
+:6  br label %1
+
+
+ <State 2>: 3.40ns
+ST_2: i [1/1] 0.00ns
+:0  %i = phi i9 [ 0, %0 ], [ %i_1, %4 ]
+
+ST_2: exitcond2 [1/1] 2.03ns
+:1  %exitcond2 = icmp eq i9 %i, -32
+
+ST_2: i_1 [1/1] 1.84ns
+:2  %i_1 = add i9 %i, 1
+
+ST_2: stg_22 [1/1] 0.00ns
+:3  br i1 %exitcond2, label %5, label %2
+
+ST_2: empty_4 [1/1] 0.00ns
+:0  %empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 480, i64 480, i64 480) nounwind
+
+ST_2: stg_24 [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecLoopName([6 x i8]* @p_str) nounwind
+
+ST_2: tmp_1 [1/1] 0.00ns
+:2  %tmp_1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([6 x i8]* @p_str) nounwind
+
+ST_2: stg_26 [1/1] 1.57ns
+:3  br label %3
+
+ST_2: stg_27 [1/1] 0.00ns
+:0  ret i32 undef
+
+
+ <State 3>: 4.55ns
+ST_3: j [1/1] 0.00ns
+:0  %j = phi i10 [ 0, %2 ], [ %j_1, %ifBlock ]
+
+ST_3: exitcond1 [1/1] 2.07ns
+:1  %exitcond1 = icmp eq i10 %j, -384
+
+ST_3: j_1 [1/1] 1.84ns
+:2  %j_1 = add i10 %j, 1
+
+ST_3: stg_31 [1/1] 0.00ns
+:3  br i1 %exitcond1, label %4, label %ifBlock
+
+ST_3: window_buffer_load [2/2] 2.39ns
+ifBlock:4  %window_buffer_load = load i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 1), align 1
+
+ST_3: window_buffer_load_1 [2/2] 2.39ns
+ifBlock:6  %window_buffer_load_1 = load i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 2), align 1
+
+ST_3: tmp_4_cast [1/1] 0.00ns
+ifBlock:17  %tmp_4_cast = zext i10 %j to i11
+
+ST_3: tmp_12 [1/1] 1.84ns
+ifBlock:18  %tmp_12 = add i11 640, %tmp_4_cast
+
+ST_3: tmp_13_cast1 [1/1] 0.00ns
+ifBlock:19  %tmp_13_cast1 = zext i11 %tmp_12 to i64
+
+ST_3: line_buffer_addr [1/1] 0.00ns
+ifBlock:20  %line_buffer_addr = getelementptr [1920 x i8]* @line_buffer, i64 0, i64 %tmp_13_cast1
+
+ST_3: tmp_13 [1/1] 1.84ns
+ifBlock:22  %tmp_13 = add i11 -768, %tmp_4_cast
+
+ST_3: tmp_17_cast1 [1/1] 0.00ns
+ifBlock:23  %tmp_17_cast1 = zext i11 %tmp_13 to i64
+
+ST_3: line_buffer_addr_2 [1/1] 0.00ns
+ifBlock:24  %line_buffer_addr_2 = getelementptr [1920 x i8]* @line_buffer, i64 0, i64 %tmp_17_cast1
+
+ST_3: line_buffer_load [2/2] 2.71ns
+ifBlock:25  %line_buffer_load = load i8* %line_buffer_addr, align 1
+
+ST_3: line_buffer_load_1 [2/2] 2.71ns
+ifBlock:27  %line_buffer_load_1 = load i8* %line_buffer_addr_2, align 1
+
+
+ <State 4>: 5.42ns
+ST_4: window_buffer_load [1/2] 2.39ns
+ifBlock:4  %window_buffer_load = load i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 1), align 1
+
+ST_4: window_buffer_load_1 [1/2] 2.39ns
+ifBlock:6  %window_buffer_load_1 = load i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 2), align 1
+
+ST_4: window_buffer_load_2 [2/2] 2.39ns
+ifBlock:8  %window_buffer_load_2 = load i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 4), align 1
+
+ST_4: window_buffer_load_4 [2/2] 2.39ns
+ifBlock:12  %window_buffer_load_4 = load i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 7), align 1
+
+ST_4: tmp_4 [1/1] 0.00ns
+ifBlock:16  %tmp_4 = zext i10 %j to i64
+
+ST_4: line_buffer_addr_1 [1/1] 0.00ns
+ifBlock:21  %line_buffer_addr_1 = getelementptr [1920 x i8]* @line_buffer, i64 0, i64 %tmp_4
+
+ST_4: line_buffer_load [1/2] 2.71ns
+ifBlock:25  %line_buffer_load = load i8* %line_buffer_addr, align 1
+
+ST_4: stg_50 [1/1] 2.71ns
+ifBlock:26  store i8 %line_buffer_load, i8* %line_buffer_addr_1, align 1
+
+ST_4: line_buffer_load_1 [1/2] 2.71ns
+ifBlock:27  %line_buffer_load_1 = load i8* %line_buffer_addr_2, align 1
+
+ST_4: stg_52 [1/1] 2.71ns
+ifBlock:28  store i8 %line_buffer_load_1, i8* %line_buffer_addr, align 1
+
+
+ <State 5>: 7.09ns
+ST_5: window_buffer_load_2 [1/2] 2.39ns
+ifBlock:8  %window_buffer_load_2 = load i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 4), align 1
+
+ST_5: window_buffer_load_3 [2/2] 2.39ns
+ifBlock:10  %window_buffer_load_3 = load i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 5), align 1
+
+ST_5: window_buffer_load_4 [1/2] 2.39ns
+ifBlock:12  %window_buffer_load_4 = load i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 7), align 1
+
+ST_5: window_buffer_load_5 [2/2] 2.39ns
+ifBlock:14  %window_buffer_load_5 = load i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 8), align 1
+
+ST_5: input_image_read [1/1] 4.38ns
+ifBlock:29  %input_image_read = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %input_image) nounwind
+
+ST_5: stg_58 [1/1] 2.71ns
+ifBlock:30  store i8 %input_image_read, i8* %line_buffer_addr_2, align 1
+
+
+ <State 6>: 5.40ns
+ST_6: stg_59 [1/1] 2.39ns
+ifBlock:5  store i8 %window_buffer_load, i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 0), align 1
+
+ST_6: stg_60 [1/1] 2.39ns
+ifBlock:7  store i8 %window_buffer_load_1, i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 1), align 1
+
+ST_6: window_buffer_load_3 [1/2] 2.39ns
+ifBlock:10  %window_buffer_load_3 = load i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 5), align 1
+
+ST_6: window_buffer_load_5 [1/2] 2.39ns
+ifBlock:14  %window_buffer_load_5 = load i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 8), align 1
+
+ST_6: tmp_5_cast [1/1] 0.00ns
+ifBlock:34  %tmp_5_cast = zext i8 %line_buffer_load to i9
+
+ST_6: tmp_7 [1/1] 0.00ns
+ifBlock:35  %tmp_7 = call i9 @_ssdm_op_BitConcatenate.i9.i8.i1(i8 %line_buffer_load_1, i1 false)
+
+ST_6: tmp_7_cast [1/1] 0.00ns
+ifBlock:36  %tmp_7_cast = zext i9 %tmp_7 to i10
+
+ST_6: tmp_8_cast [1/1] 0.00ns
+ifBlock:37  %tmp_8_cast = zext i8 %input_image_read to i9
+
+ST_6: tmp_9_cast2 [1/1] 0.00ns
+ifBlock:38  %tmp_9_cast2 = zext i8 %window_buffer_load to i10
+
+ST_6: tmp_9_cast [1/1] 0.00ns
+ifBlock:39  %tmp_9_cast = zext i8 %window_buffer_load to i11
+
+ST_6: tmp_10_cast1 [1/1] 0.00ns
+ifBlock:42  %tmp_10_cast1 = zext i8 %window_buffer_load_4 to i10
+
+ST_6: tmp [1/1] 1.72ns
+ifBlock:44  %tmp = add i9 %tmp_5_cast, %tmp_8_cast
+
+ST_6: tmp_cast [1/1] 0.00ns
+ifBlock:45  %tmp_cast = zext i9 %tmp to i10
+
+ST_6: tmp_s [1/1] 1.84ns
+ifBlock:46  %tmp_s = add i10 %tmp_cast, %tmp_7_cast
+
+ST_6: tmp_12_cast [1/1] 0.00ns
+ifBlock:47  %tmp_12_cast = zext i10 %tmp_s to i11
+
+ST_6: p_neg6 [1/1] 1.84ns
+ifBlock:48  %p_neg6 = sub i11 %tmp_12_cast, %tmp_9_cast
+
+ST_6: tmp_9 [1/1] 1.72ns
+ifBlock:57  %tmp_9 = sub i9 %tmp_5_cast, %tmp_8_cast
+
+ST_6: tmp_18_cast [1/1] 0.00ns
+ifBlock:58  %tmp_18_cast = sext i9 %tmp_9 to i10
+
+ST_6: tmp_10 [1/1] 1.37ns
+ifBlock:59  %tmp_10 = add i10 %tmp_18_cast, %tmp_9_cast2
+
+ST_6: p_neg7 [1/1] 1.37ns
+ifBlock:60  %p_neg7 = sub i10 %tmp_10, %tmp_10_cast1
+
+
+ <State 7>: 7.94ns
+ST_7: stg_79 [1/1] 2.39ns
+ifBlock:9  store i8 %window_buffer_load_2, i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 3), align 1
+
+ST_7: stg_80 [1/1] 2.39ns
+ifBlock:11  store i8 %window_buffer_load_3, i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 4), align 1
+
+ST_7: tmp_3 [1/1] 0.00ns
+ifBlock:40  %tmp_3 = call i9 @_ssdm_op_BitConcatenate.i9.i8.i1(i8 %window_buffer_load_2, i1 false)
+
+ST_7: tmp_3_cast [1/1] 0.00ns
+ifBlock:41  %tmp_3_cast = zext i9 %tmp_3 to i11
+
+ST_7: tmp_10_cast [1/1] 0.00ns
+ifBlock:43  %tmp_10_cast = zext i8 %window_buffer_load_4 to i11
+
+ST_7: p_neg4 [1/1] 1.37ns
+ifBlock:49  %p_neg4 = sub i11 %p_neg6, %tmp_3_cast
+
+ST_7: tmp_5 [1/1] 1.37ns
+ifBlock:50  %tmp_5 = sub i11 %p_neg4, %tmp_10_cast
+
+ST_7: tmp_13_cast [1/1] 0.00ns
+ifBlock:51  %tmp_13_cast = sext i11 %tmp_5 to i32
+
+ST_7: stg_87 [1/1] 0.00ns
+ifBlock:52  store i32 %tmp_13_cast, i32* @Gx, align 4
+
+ST_7: tmp_6 [1/1] 0.00ns
+ifBlock:53  %tmp_6 = call i9 @_ssdm_op_BitConcatenate.i9.i8.i1(i8 %window_buffer_load_1, i1 false)
+
+ST_7: tmp_15_cast [1/1] 0.00ns
+ifBlock:54  %tmp_15_cast = zext i9 %tmp_6 to i11
+
+ST_7: tmp_8 [1/1] 0.00ns
+ifBlock:55  %tmp_8 = call i9 @_ssdm_op_BitConcatenate.i9.i8.i1(i8 %window_buffer_load_5, i1 false)
+
+ST_7: tmp_17_cast [1/1] 0.00ns
+ifBlock:56  %tmp_17_cast = zext i9 %tmp_8 to i11
+
+ST_7: p_neg7_cast [1/1] 0.00ns
+ifBlock:61  %p_neg7_cast = sext i10 %p_neg7 to i11
+
+ST_7: p_neg9 [1/1] 1.37ns
+ifBlock:62  %p_neg9 = add i11 %tmp_15_cast, %p_neg7_cast
+
+ST_7: tmp_11 [1/1] 1.37ns
+ifBlock:63  %tmp_11 = sub i11 %p_neg9, %tmp_17_cast
+
+ST_7: tmp_20_cast [1/1] 0.00ns
+ifBlock:64  %tmp_20_cast = sext i11 %tmp_11 to i32
+
+ST_7: stg_96 [1/1] 0.00ns
+ifBlock:65  store i32 %tmp_20_cast, i32* @Gy, align 4
+
+ST_7: tmp_16 [1/1] 0.00ns
+ifBlock:66  %tmp_16 = trunc i11 %tmp_5 to i8
+
+ST_7: abscond [1/1] 2.11ns
+ifBlock:67  %abscond = icmp sgt i11 %tmp_5, 0
+
+ST_7: tmp_14 [1/1] 1.72ns
+ifBlock:68  %tmp_14 = sub i8 0, %tmp_16
+
+ST_7: tmp_15 [1/1] 1.37ns
+ifBlock:69  %tmp_15 = select i1 %abscond, i8 %tmp_16, i8 %tmp_14
+
+ST_7: tmp_17 [1/1] 0.00ns
+ifBlock:70  %tmp_17 = trunc i11 %tmp_11 to i8
+
+ST_7: abscond1 [1/1] 2.11ns
+ifBlock:71  %abscond1 = icmp sgt i11 %tmp_11, 0
+
+ST_7: tmp_18 [1/1] 1.72ns
+ifBlock:72  %tmp_18 = sub i8 0, %tmp_17
+
+ST_7: tmp_19 [1/1] 1.37ns
+ifBlock:73  %tmp_19 = select i1 %abscond1, i8 %tmp_17, i8 %tmp_18
+
+ST_7: tmp_20 [1/1] 1.72ns
+ifBlock:74  %tmp_20 = add i8 %tmp_15, %tmp_19
+
+
+ <State 8>: 4.38ns
+ST_8: stg_106 [1/1] 2.39ns
+ifBlock:13  store i8 %window_buffer_load_4, i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 6), align 1
+
+ST_8: stg_107 [1/1] 2.39ns
+ifBlock:15  store i8 %window_buffer_load_5, i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 7), align 1
+
+ST_8: stg_108 [1/1] 4.38ns
+ifBlock:75  call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %output_image, i8 %tmp_20) nounwind
+
+
+ <State 9>: 2.39ns
+ST_9: stg_109 [1/1] 2.39ns
+ifBlock:31  store i8 %line_buffer_load, i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 2), align 1
+
+ST_9: stg_110 [1/1] 2.39ns
+ifBlock:32  store i8 %line_buffer_load_1, i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 5), align 1
+
+
+ <State 10>: 2.39ns
+ST_10: empty_5 [1/1] 0.00ns
+ifBlock:0  %empty_5 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 640, i64 640, i64 640) nounwind
+
+ST_10: stg_112 [1/1] 0.00ns
+ifBlock:1  call void (...)* @_ssdm_op_SpecLoopName([6 x i8]* @p_str1) nounwind
+
+ST_10: tmp_2 [1/1] 0.00ns
+ifBlock:2  %tmp_2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([6 x i8]* @p_str1) nounwind
+
+ST_10: stg_114 [1/1] 0.00ns
+ifBlock:3  call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str4) nounwind
+
+ST_10: stg_115 [1/1] 2.39ns
+ifBlock:33  store i8 %input_image_read, i8* getelementptr inbounds ([9 x i8]* @window_buffer, i64 0, i64 8), align 1
+
+ST_10: empty_6 [1/1] 0.00ns
+ifBlock:76  %empty_6 = call i32 (...)* @_ssdm_op_SpecRegionEnd([6 x i8]* @p_str1, i32 %tmp_2) nounwind
+
+ST_10: stg_117 [1/1] 0.00ns
+ifBlock:77  br label %3
+
+
+ <State 11>: 0.00ns
+ST_11: empty_7 [1/1] 0.00ns
+:0  %empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([6 x i8]* @p_str, i32 %tmp_1) nounwind
+
+ST_11: stg_119 [1/1] 0.00ns
+:1  br label %1
+
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
