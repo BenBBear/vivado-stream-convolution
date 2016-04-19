@@ -26,12 +26,11 @@ todo
 ### Result Comparision
 
 #### Old
-
-![old.jpg](https://bitbucket.org/repo/7kRXr5/images/4039357462-old.jpg)
+![old.jpg](https://bitbucket.org/repo/7kRXr5/images/4064045564-old.jpg)
 
 #### Optimized
 
-![new.png](https://bitbucket.org/repo/7kRXr5/images/1326537701-new.png)
+![new.png](https://bitbucket.org/repo/7kRXr5/images/1316155658-new.png)
 
 ### Test Bench
 
