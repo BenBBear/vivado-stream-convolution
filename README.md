@@ -23,6 +23,15 @@ vivado_hls ./script.tcl
 todo
 
 
+### Result Comparision
+
+#### Old
+
+![old.jpg](https://bitbucket.org/repo/7kRXr5/images/4039357462-old.jpg)
+
+#### Optimized
+
+![new.png](https://bitbucket.org/repo/7kRXr5/images/1326537701-new.png)
 
 ### Test Bench
 
